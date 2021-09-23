@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import Header from "../../components/Header";
@@ -20,7 +20,7 @@ export default function Buildings() {
   const [spinner, setSpinner] = useState(false);
   const columns = ["id", "Name", "Area", "location", "image", "Action"];
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
     axios
       .get("data.json")
       .then(({ data }) => {
@@ -46,6 +46,10 @@ export default function Buildings() {
     setformType({ type: "add" });
     dispatch(modalActions.openModal());
   };
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div>

@@ -1,27 +1,47 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { actions as buildingActions } from "../../store/Buildings/actions";
+import { actions as modalActions } from "../../store/Modal/actions";
 import FormInput from "../FormInput";
-import useForm from "../../utils/useForm";
+import useForm from "../../hooks/useForm";
 //import Button from '../Button';
 import Button from "@mui/material/Button";
 import Grid from "@material-ui/core/Grid";
-import { generateRandom } from "../../utils/validator";
+import { generateRandom } from "../../utils/helper";
+import { validate } from "../../utils/helper";
 
 export default function Form({ formType, onEsc }) {
+  const dispatch = useDispatch();
   const { type, id } = formType;
   const buildings = useSelector((state) => state.buildings);
   const findBuilding = buildings.find((e) => e.id === id);
-  const getAllID = buildings.map((e) => e.id);
-  const data2 = {
-    id: generateRandom(getAllID),
+  const getBuildingsID = buildings.map((e) => e.id);
+
+  const defaultData = {
+    id: generateRandom(getBuildingsID),
     name: "",
     area: "",
     location: "",
     image: "",
   };
-  const data = type === "add" ? data2 : findBuilding;
 
-  const { values, errors, handleChange, handleSubmit } = useForm(data, type);
+  const data = type === "add" ? defaultData : findBuilding;
+
+  const { values, errors, handleChange, handleSubmit, submit } = useForm(
+    data,
+    validate
+  );
+
+  useEffect(() => {
+    if (!Object.entries(errors).length && submit) {
+      if (type === "add") {
+        dispatch(buildingActions.addBuilding(values));
+      } else {
+        dispatch(buildingActions.editBuilding(values));
+      }
+      dispatch(modalActions.closeModal());
+    }
+  }, [errors, values, dispatch, submit, type]);
 
   return (
     <form>

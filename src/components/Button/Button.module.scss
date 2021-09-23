@@ -1,16 +1,16 @@
 .Button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 48%;
-    height: 30px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    &--primary {
-        background-color: blue
-    }
-    &--secondary {
-        background-color: red;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  height: 30px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  &--primary {
+    background-color: blue;
+  }
+  &--secondary {
+    background-color: red;
+  }
 }

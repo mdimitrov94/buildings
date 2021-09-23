@@ -1,21 +1,20 @@
 .FormInput {
-    height: 55px;
-    &__text {
-        color: red;
-    }
+  height: 55px;
+  &__text {
+    color: red;
+  }
 }
 
 input {
-    width: 100%;
-    height: 30px;
-    padding: 10px;
-    margin-bottom: 3px;
-    border-radius: 5px;
-    &:focus {
-        outline: none;
-    }
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .error {
-    border-color: red;
+  border-color: red;
 }
