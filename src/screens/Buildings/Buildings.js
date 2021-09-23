@@ -28,7 +28,7 @@ export default function Buildings() {
         setTimeout(() => {
           dispatch(buildingActions.setBuildings(data));
           setSpinner(false);
-        }, 200);
+        }, 2000);
       })
       .catch((err) => console.log(err));
   }, [dispatch]);
