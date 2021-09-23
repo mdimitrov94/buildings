@@ -1,1 +1,2 @@
-# buildings
+npm install
+npm start
