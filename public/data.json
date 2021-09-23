@@ -1,0 +1,24 @@
+[
+  { "id": "1", "name": "Astoria", "area": 200, "location": 44, "image": "https://media.istockphoto.com/photos/beautiful-luxury-home-exterior-with-green-grass-and-landscaped-yard-picture-id856794670" },
+  {
+    "id": "2",
+    "name": "Blue Lagoon",
+    "area": 500,
+    "location": 4,
+    "image": "https://image.shutterstock.com/image-photo/small-old-house-entrance-porch-600w-197681849.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Sofia Estate",
+    "area": 2200,
+    "location": 34,
+    "image": "https://media.istockphoto.com/photos/suburban-house-picture-id1269776313"
+  },
+  {
+    "id": "4",
+    "name": "Varna Palace",
+    "area": 3020,
+    "location": 14,
+    "image": "https://image.shutterstock.com/image-photo/small-old-house-entrance-porch-600w-197681849.jpg"
+  }
+]
